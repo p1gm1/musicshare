@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+Django = "==3.2.12"
+django-filter = "==2.4.0"
+psycopg2 = "==2.9.1"
+django-extensions = "==3.1.5"
+djangorestframework = "==3.12.4"
+graphene = "==2.1.9"
+graphql-core = "==2.3.2"
+graphene-django = "==2.15.0"
+graphene-django-extras = "==0.4.9"
+django-graphql-jwt = "==0.3.3"
+django-graphql-auth = "*"
+pytest-django = "==4.4.0"
+ipdb = "==0.12"
+coverage = "==6.1.2"
+Faker = "==0.8.15"
+model-bakery = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

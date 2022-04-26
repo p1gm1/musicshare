@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  django: &django
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    networks:
+      - musicshare-net
+    command: /start
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: musicshare
+      POSTGRES_USER: musicshare
+      POSTGRES_PASSWORD: musicshare
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - musicshare-net
+
+networks:
+  musicshare-net:
+    driver: bridge
+
+volumes:
+  postgres-data:
